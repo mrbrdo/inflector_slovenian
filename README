@@ -3,14 +3,27 @@ InflectorSlovenian
 
 Slovenski inflector za Rails 3.
 
+NAMESTITEV PLUGINA
+==================
+
+rails plugin install git://github.com/mrbrdo/inflector_slovenian.git
+
 UPORABA
 =======
 
 ActiveSupport::Inflector.pluralize_slo("beseda", 4)
 
-V tem primeru dobimo "besede", pri stevilu 5 pa bi dobili rezultat "besed".
+V tem primeru dobimo "besede", pri številu 5 pa bi dobili rezultat "besed".
 
-PROSIM ce dodate kaksna nova pravila, da mi posljete pull request! Hvala!
+PROSIM če dodate kaksna nova pravila, da mi pošljete pull request ali jih napišete v Issues! Hvala!
 
+Nova pravila lahko dodajate v vendor/plugins/inflector_slovenian/lib/inflector_slovenian.rb ali pa v config/initializers/inflections.rb, kjer sledite že obstoječemu primeru, vendar uporabite metodo plural_slo.
+
+Primer vnosa v inflections.rb initializer:
+
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.plural_slo /a$/i, 'i', 'e', '' # ključavnica, barva...
+  inflect.plural_slo /^pes$/i, 'psa', 'psi', 'psov' # pes
+end
 
 Copyright (c) 2010 Jan Berdajs, released under the MIT license

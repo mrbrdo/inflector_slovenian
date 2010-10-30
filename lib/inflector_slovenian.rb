@@ -44,4 +44,39 @@ module ActiveSupport
       end
     end
   end
+
+  Inflector.inflections do |inflect|
+    inflect.plural_slo /$/i, 'a', 'i', 'ov' # strešnik, praznik, parkeljc
+    
+    inflect.plural_slo /a$/i, 'i', 'e', '' # ključavnica, barva
+    inflect.plural_slo /([eo].)o$/i, '\1esi', '\1esa', '\1es' # drevo, kolo
+    inflect.plural_slo /to$/i, 'ti', 'ta', 't' # sito, kopito
+    inflect.plural_slo /je$/i, 'ji', 'ja', 'ij' # ohišje
+    
+    # za tele rabim se singularizacijo
+    ['č', 'š', 'st', 'ut', 'os', 'smet'].each do |c|
+      inflect.plural_slo(Regexp.new("#{c}$", true), "#{c}i", "#{c}i", "#{c}i")
+      # smrček, bonbonček, prstek, kužek
+      # kost, perut, gos, smet
+      # ne dela: MOST
+    end
+    inflect.plural_slo /ec$/i, 'ca', 'ci', 'cev' # kozolec
+    inflect.plural_slo /i(.)o$/i, 'i\1i', 'i\1a', 'i\1' # kladivo, vodilo
+    ['r', 'n'].each do |c|
+      inflect.plural_slo(Regexp.new("#{c}o$", true), "#{c}i", "#{c}a", "e#{c}")
+      # vedro, vlakno
+    end
+    inflect.plural_slo /ce$/i, 'ci', 'ca', 'c' # sonce
+    
+    # za tele rabim se singularizacijo
+    # manjšalnice
+    ['č', 'ž', 't'].each do |c|
+      inflect.plural_slo(Regexp.new("#{c}ek$", true), "#{c}ka", "#{c}ki", "#{c}kov")
+      # smrček, bonbonček, prstek, kužek
+    end
+
+    # posebni
+    inflect.plural_slo /^pes$/i, 'psa', 'psi', 'psov'
+    inflect.plural_slo /^smrt$/i, 'smrti', 'smrti', 'smrti'
+  end
 end
