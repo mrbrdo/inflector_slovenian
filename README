@@ -28,6 +28,12 @@ end
 
 Prvi argument je regularni izraz, drugi je zamenjava pri številu 2, tretji pri številih 3 in 4, četrti pa pri ostalih številih (0, 5, 6...).
 
+V ApplicationHelper-ju lahko dodate tudi:
+include InflectorSlovenianHelper
+
+Potem lahko v view-ih uporabljate helper:
+pluralize_slo(10, "jabolko")
+
 DODATNE INFORMACIJE
 ===================
 
