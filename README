@@ -1,0 +1,16 @@
+InflectorSlovenian
+==================
+
+Slovenski inflector za Rails 3.
+
+UPORABA
+=======
+
+ActiveSupport::Inflector.pluralize_slo("beseda", 4)
+
+V tem primeru dobimo "besede", pri stevilu 5 pa bi dobili rezultat "besed".
+
+PROSIM ce dodate kaksna nova pravila, da mi posljete pull request! Hvala!
+
+
+Copyright (c) 2010 Jan Berdajs, released under the MIT license
