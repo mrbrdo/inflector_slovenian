@@ -1,3 +1,4 @@
+# encoding: utf-8
 module ActiveSupport
   module Inflector
     class Inflections
@@ -78,5 +79,13 @@ module ActiveSupport
     # posebni
     inflect.plural_slo /^pes$/i, 'psa', 'psi', 'psov'
     inflect.plural_slo /^smrt$/i, 'smrti', 'smrti', 'smrti'
+    
+=begin
+    inflect.singular /.$/, 'a'
+    inflect.singular /ov$/i, ''
+    inflect.singular /es$/i, 'o'
+    inflect.singular /t$/i, 'to'
+    inflect.singular /ij$/i, 'je'
+=end
   end
 end
