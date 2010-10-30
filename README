@@ -28,4 +28,9 @@ end
 
 Prvi argument je regularni izraz, drugi je zamenjava pri številu 2, tretji pri številih 3 in 4, četrti pa pri ostalih številih (0, 5, 6...).
 
+DODATNE INFORMACIJE
+===================
+
+Namenoma je dodana posebna metoda za slovensko pluralizacijo, ker bi sicer celotni railsi zaceli slovensko pluralizirati, tudi imena tabel v bazi in imena route helperjev itd.
+
 Copyright (c) 2010 Jan Berdajs, released under the MIT license
